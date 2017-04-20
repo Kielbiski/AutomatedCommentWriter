@@ -62,20 +62,35 @@ except Exception as e:
 """
 # initialize an empty list to store the folders
 folders = []
+try:
+	offlinegradingworksheet = {}
+	handle = open("offline-grading-worksheet.csv", "r")
+	for line in handle:
+		data = line.split(",")
+		offlinegradingworksheet[data[0]] = data[2]
+	handle.close()
+except Exception as e:
+	print("\nError occured:")
+	print("Error class: " + str(type(e)))
+	print("Error type: " + str(e))
+	print("Please correct this error and restart.")
+	print("Program exiting.\n")
+	exit()
 
-offlinegradingworksheet = {}
-handle = open("offline-grading-worksheet.csv", "r")
-for line in handle:
-	data = line.split(",")
-	offlinegradingworksheet[data[0]] = data[2]
-handle.close()
-	
-plaintextgradesexported = {}
-handle = open("plaintext-grades-exported.csv", "r")
-for line in handle:
-	data = line.split(",")
-	plaintextgradesexported[data[2]] = data[3]
-handle.close()
+try:
+	plaintextgradesexported = {}
+	handle = open("plaintext-grades-exported.csv", "r")
+	for line in handle:
+		data = line.split(",")
+		plaintextgradesexported[data[2]] = data[3]
+	handle.close()
+except Exception as e:
+	print("\nError occured:")
+	print("Error class: " + str(type(e)))
+	print("Error type:" + str(e))
+	print("Please correct this error and restart.")
+	print("Program exiting.\n")
+	exit()
 
 def main():
 	
