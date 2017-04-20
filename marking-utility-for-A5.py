@@ -22,16 +22,16 @@ edit = """
 
 print("Please consult the generator and see if the expected output matches this output.")
 print("Their program produces: ")
-gold = []
+testList = []
 try:
     for i in range(22):
-        gold.append(functionName1(i+1))
+        testList.append(functionName1(i+1))
     print("Base cases: ")
     for i in range(6):
-        print("f(" + str(i) + ") = " + str(gold[i]))
+        print("f(" + str(i) + ") = " + str(testList[i]))
     print("Rest of sequence: ")
     for i in range(6,21):
-        print("f(" + str(i) + ") = " + str(gold[i]))
+        print("f(" + str(i) + ") = " + str(testList[i]))
 except Exception as e:
     print()
     print(e)
@@ -137,9 +137,9 @@ def main():
 	
 
 	input("\n"+"Press enter to start the generator."+"\n")
-	hi = open("marking-utility-a5-output.txt", 'w')
-	hi.write("Assignment 4 Marking Output for " + TAname + "\n")
-	hi.close()
+	target = open("marking-utility-a5-output.txt", 'w')
+	target.write("Assignment 4 Marking Output for " + TAname + "\n")
+	target.close()
 	mainDir = os.getcwd()
 	# visit each folder...
 	for folder in folders:
@@ -612,11 +612,10 @@ def main():
 			print()
 		unroundedMark = mark / 50 * 100
 		markInPercent = math.ceil(unroundedMark * 100) / 100
-		hi = open("marking-utility-a5-output.txt", 'a')
-		hi.write("hi1111")
+		target = open("marking-utility-a5-output.txt", 'a')
 		###################################################################################################################		
 		input("\n"+"Press enter to continue."+"\n")
-		hi.close()
+		target.close()
 	print("Reached the end of student folders. ")
 
 if __name__ == "__main__":
